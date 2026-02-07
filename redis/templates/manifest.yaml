@@ -26,16 +26,16 @@ spec:
     spec:
       containers:
       - name: redis
-        image: {{ .Value.deployment.image}}
+        image: {{ .Values.deployment.image}}
         imagePullPolicy: Always
         readinessProbe:
           tcpSocket: 
-            port: {{ .Value.deployment.port}}
+            port: {{ .Values.deployment.port}}
           initialDelaySeconds: 10
           periodSeconds: 10
         livenessProbe:
           tcpSocket: 
-            port: {{ .Value.deployment.port}}
+            port: {{ .Values.deployment.port}}
           initialDelaySeconds: 10
           periodSeconds: 10  
 ---
@@ -51,5 +51,5 @@ spec:
     tier: db
   ports:
   - protocol: TCP
-    port: {{ .Value.service.servicePort}}
+    port: {{ .Values.service.servicePort}}
     targetPort: 6379
