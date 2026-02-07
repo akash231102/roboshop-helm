@@ -1,0 +1,5 @@
+deployment:
+  image: redis7.0
+  port: 6379
+service:
+  servicePort: 6379
